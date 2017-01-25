@@ -1,0 +1,17 @@
+{
+  "production": {
+    "config": {
+      "API_URL": ""
+    }
+  },
+  "development": {
+    "config": {
+      "API_URL": ""
+    }
+  },
+  "localhost": {
+    "config": {
+      "API_URL": "http://127.0.0.1:8000/website"
+    }
+  }
+}

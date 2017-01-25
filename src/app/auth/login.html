@@ -1,0 +1,31 @@
+<div class="page__login">
+  <div class="page__login__form_wrapper">
+    <form name="LoginForm" class="login-form" ng-submit="vc.AuthService.login(username, password)">
+      <div class="row">
+
+        <div class="col-sm-12">
+          <h1>Words search</h1>
+        </div>
+
+        <div class="col-sm-12">
+          <input type="text" class="form-control-1" id="login" name="username" ng-model="username" placeholder="Adres e-mail">
+        </div>
+
+        <div class="col-sm-12">
+          <input type="password" class="form-control-1" id="password" name="password" ng-model="password" placeholder="Hasło">
+        </div>
+
+        <div class="col-sm-12">
+          <button class="btn btn-success">Zaloguj się</button>
+        </div>
+        <div class="col-sm-12 text-center">
+            lub
+        </div>
+        <div class="col-sm-12">
+          <a ui-sref="root.register" class="btn btn-info page__login__register_btn">Zarejestruj się</a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

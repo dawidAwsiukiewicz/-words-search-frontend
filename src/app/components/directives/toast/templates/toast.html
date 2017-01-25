@@ -1,0 +1,17 @@
+
+<div class="toast-position {{toastClass}} {{toastType}}">
+    <div class="toast-content">
+      <div ng-if="toastType=='toast-custom-success' || toastType=='toast-custom-error'">
+        <div ng-if="title" class="{{titleClass}}" ng-bind-html="title"></div>
+        <div class="{{messageClass}} pull-left" ng-bind-html="message"></div>
+        <progress-bar ng-if="progressBar"></progress-bar>
+        <a class="toastClose cursor-pointer" ng-click="tapToast()">Zamknij okno</a>
+      </div>
+      <div ng-if="toastType=='toast-custom-warning'">
+        <div class="{{messageClass}} pull-left" ng-bind-html="message"></div>
+        <progress-bar ng-if="progressBar"></progress-bar>
+        <a class="toastClose cursor-pointer" ng-click="close()">Anuluj</a>
+        <a class="toastRemove cursor-pointer" ng-click="tapToast()">{{title}}</a>
+      </div>
+    </div>
+</div>
