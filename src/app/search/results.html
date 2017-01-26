@@ -7,26 +7,28 @@
         <th class="text-center">Akcja</th>
     </tr>
     </thead>
-    <tr>
-        <td>1</td>
-        <td>URL</td>
-        <td>Status</td>
-        <td class="text-center">
-            <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-th-large"></span> Szczegóły</a>
-        </td>
-    </tr>
-    <tr class="table__detail">
-        <td colspan="4">
-            <ul>
-                <li>
-                    <span class="table__detail__label">Słowo:</span>
-                    <span class="table__detail__value">10</span>
-                </li>
-                <li>
-                    <span class="table__detail__label">Słowo:</span>
-                    <span class="table__detail__value">10</span>
-                </li>
-            </ul>
-        </td>
-    </tr>
+    <tbody ng-repeat="item in vc.itemList.results">
+        <tr>
+            <td ng-bind="$index + 1"></td>
+            <td ng-bind="item.url"></td>
+            <td ng-bind="item.status_display"></td>
+            <td class="text-center">
+                <a class='btn btn-info btn-xs' ng-click="item.show_detail=!item.show_detail"><span class="glyphicon glyphicon-th-large"></span> Szczegóły</a>
+            </td>
+        </tr>
+        <tr class="table__detail" ng-hide="!item.show_detail">
+            <td colspan="4">
+                <ul>
+                    <li ng-repeat="word in item.words">
+                        <span class="table__detail__label">{{word.word}}:</span>
+                        <span class="table__detail__value">{{word.count}}</span>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
 </table>
+
+<div>
+    <ul class="pagination-custom pull-left" uib-pagination items-per-page="vc.filter.per_page" ng-change="vc.loadItemList(vc.filter)" total-items="vc.totalItems" ng-model="vc.filter.page" max-size="5"></ul>
+</div>

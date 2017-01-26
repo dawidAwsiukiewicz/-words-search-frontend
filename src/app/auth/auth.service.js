@@ -13,6 +13,7 @@
         _this.localStorageService = localStorageService;
         _this.$state = $state;
         _this.RequestMaker = RequestMaker;
+        _this.registerForm = false;
 
         _this.login = function (username, password) {
             return _this.RequestMaker.post({url: '/auth'}, {
@@ -22,6 +23,20 @@
                 _this.localStorageService.set('User', response.data.user_data);
 
                 $state.go('root.search');
+
+            }).catch(function (response) {
+                _this.ErrorHandlerService.notifyUser(response);
+                return response;
+            });
+        };
+        
+        _this.register = function (username, password) {
+
+            _this.registerForm = false;
+            return _this.RequestMaker.post({url: '/register'}, {
+                username: username, password: password
+            }).then(function (response) {
+                _this.registerForm = false;
 
             }).catch(function (response) {
                 _this.ErrorHandlerService.notifyUser(response);

@@ -1,28 +1,33 @@
 <div class="page__login">
   <div class="page__login__form_wrapper">
-    <form name="LoginForm" class="login-form" ng-submit="vc.AuthService.login(username, password)">
+    <form name="LoginForm" class="login-form" novalidate>
       <div class="row">
 
         <div class="col-sm-12">
-          <h1>Words search</h1>
+          <h1 ng-bind="vc.AuthService.registerForm?'Rejestracja':'Logowanie'"></h1>
         </div>
 
         <div class="col-sm-12">
-          <input type="text" class="form-control-1" id="login" name="username" ng-model="username" placeholder="Adres e-mail">
+          <input type="email" class="form-control-1" id="login" name="username" ng-model="username" placeholder="Adres e-mail" required>
         </div>
 
         <div class="col-sm-12">
-          <input type="password" class="form-control-1" id="password" name="password" ng-model="password" placeholder="Hasło">
+          <input type="password" class="form-control-1" id="password" name="password" ng-model="password" placeholder="Hasło" required>
+        </div>
+
+        <div class="col-sm-12" ng-show="vc.AuthService.registerForm">
+          <input type="password" ng-disabled="!vc.AuthService.registerForm" class="form-control-1" id="repeat_password" name="repeat_password" ng-model="repeat_password" placeholder="Powtórz hasło" required>
         </div>
 
         <div class="col-sm-12">
-          <button class="btn btn-success">Zaloguj się</button>
+          <button class="btn btn-success ng-hide" ng-disabled="LoginForm.username.$invalid || LoginForm.password.$invalid" ng-click="vc.AuthService.login(username, password)" ng-show="!vc.registerForm">Zaloguj się</button>
+          <button class="btn btn-success ng-hide"  ng-disabled="LoginForm.username.$invalid || LoginForm.password.$invalid || password!==repeat_password" ng-click="vc.AuthService.register(username, password)" ng-show="vc.registerForm">Zarejestruj się</button>
         </div>
         <div class="col-sm-12 text-center">
             lub
         </div>
         <div class="col-sm-12">
-          <a ui-sref="root.register" class="btn btn-info page__login__register_btn">Zarejestruj się</a>
+          <a ng-click="vc.AuthService.registerForm=!vc.AuthService.registerForm" class="btn btn-info page__login__register_btn cursor-pointer">{{vc.registerForm?'Wróć do logowania':'Załóż nowe konto'}}</a>
         </div>
 
       </div>

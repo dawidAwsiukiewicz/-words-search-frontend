@@ -28,7 +28,7 @@
         };
 
         _this.get = function (url, customSettings) {
-            var REQUEST_URL = _this.makeRequestUrl(url);
+            var REQUEST_URL = _this.makeRequestUrl(url.url);
 
             if (typeof customSettings != "undefined") {
                 return _this.$http.get(REQUEST_URL, customSettings);
@@ -38,7 +38,7 @@
         };
 
         _this.patch = function (url, data, customSettings) {
-            var REQUEST_URL = _this.makeRequestUrl(url);
+            var REQUEST_URL = _this.makeRequestUrl(url.url);
 
             if (typeof customSettings != "undefined") {
                 return _this.$http.patch(REQUEST_URL, data, customSettings);
@@ -48,7 +48,7 @@
         };
 
         _this.delete = function (url, customSettings) {
-            var REQUEST_URL = _this.makeRequestUrl(url);
+            var REQUEST_URL = _this.makeRequestUrl(url.url);
 
             if (typeof customSettings != "undefined") {
                 return $http.delete(REQUEST_URL, customSettings);

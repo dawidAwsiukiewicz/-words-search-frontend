@@ -29,7 +29,7 @@
                 views: {
                     'content@root': {
                         templateUrl: 'app/search/results.html',
-                        controller: 'LoginController',
+                        controller: 'SearchResultsController',
                         controllerAs: 'vc'
                     }
                 }
