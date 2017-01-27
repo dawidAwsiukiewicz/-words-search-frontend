@@ -20,8 +20,8 @@
         </div>
 
         <div class="col-sm-12">
-          <button class="btn btn-success ng-hide" ng-disabled="LoginForm.username.$invalid || LoginForm.password.$invalid" ng-click="vc.AuthService.login(username, password)" ng-show="!vc.registerForm">Zaloguj się</button>
-          <button class="btn btn-success ng-hide"  ng-disabled="LoginForm.username.$invalid || LoginForm.password.$invalid || password!==repeat_password" ng-click="vc.AuthService.register(username, password)" ng-show="vc.registerForm">Zarejestruj się</button>
+          <button class="btn btn-success ng-hide" ng-disabled="LoginForm.username.$invalid || LoginForm.password.$invalid" ng-click="vc.AuthService.login(username, password)" ng-show="!vc.AuthService.registerForm">Zaloguj się</button>
+          <button class="btn btn-success ng-hide"  ng-disabled="LoginForm.username.$invalid || LoginForm.password.$invalid || password!==repeat_password" ng-click="vc.AuthService.register(username, password)" ng-show="vc.AuthService.registerForm">Zarejestruj się</button>
         </div>
         <div class="col-sm-12 text-center">
             lub

@@ -18,7 +18,7 @@
                 views: {
                     'content@root': {
                         templateUrl: 'app/search/form.html',
-                        controller: 'LoginController',
+                        controller: 'SearchController',
                         controllerAs: 'vc'
                     }
                 }

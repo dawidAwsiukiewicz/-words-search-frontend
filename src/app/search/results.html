@@ -1,3 +1,16 @@
+
+<div class="alert alert-success ng-hide" ng-show="vc.SearchService.form_success && vc.SearchService.bad_url_list.length === 0">
+  <strong>Udało się!</strong> strony zostały dodane do kolejki
+</div>
+
+<div class="alert alert-info ng-hide" ng-show="vc.SearchService.form_success && vc.SearchService.bad_url_list.length > 0">
+  <strong>Prawie się udało!</strong><br/>
+    Poniższe strony zostaną pominięte
+    <br/>
+    <span ng-repeat="url in vc.SearchService.bad_url_list">{{url}}<br/></span>
+</div>
+
+
 <table class="table table-striped">
     <thead>
     <tr>

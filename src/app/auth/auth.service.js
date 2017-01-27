@@ -33,10 +33,13 @@
         _this.register = function (username, password) {
 
             _this.registerForm = false;
-            return _this.RequestMaker.post({url: '/register'}, {
-                username: username, password: password
+            return _this.RequestMaker.post({url: '/register/register/'}, {
+                email: username, password: password
             }).then(function (response) {
-                _this.registerForm = false;
+                if(response.status == 201){
+                    _this.registerForm = false;
+                    _this.AlertService.successMessage({},"Twoje konto zostało utworzone.")
+                }
 
             }).catch(function (response) {
                 _this.ErrorHandlerService.notifyUser(response);
