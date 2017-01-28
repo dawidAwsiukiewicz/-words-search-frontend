@@ -15,7 +15,7 @@ https://github.com/dawidAwsiukiewicz/words-search-api
 ```
 $ virtualenv env
 $ . env/bin/activate
-$ pip install -r requirements.txt
+(env)$ pip install -r requirements.txt
 ```
 
 2. Create environment for Node.js
@@ -51,4 +51,9 @@ $ pip install -r requirements.txt
 2. Start server with localhost api (default API url http://127.0.0.1:8000/website)
 ```
 (env)$ gulp build --localhost
+```
+
+## Example file
+```
+(env)$ example_url.txt
 ```
