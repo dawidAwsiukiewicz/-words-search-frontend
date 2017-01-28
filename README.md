@@ -20,18 +20,18 @@ $ pip install -r requirements.txt
 
 2. Create environment for Node.js
 ```
-$ nodeenv -p
+(env)$ nodeenv -p
 ```
 
 3. Install gulp and bower
 ```
-$ npm install -g gulp bower
+(env)$ npm install -g gulp bower
 ```
 
 3. Install js requirements
 ```
-$ npm install
-$ bower install
+(env)$ npm install
+(env)$ bower install
 ```
 
 ## Start server
@@ -40,7 +40,7 @@ $ bower install
 
 2. Start server with localhost api (default API url http://127.0.0.1:8000/website)
 ```
-$ gulp serve --localhost
+(env)$ gulp serve --localhost
 ```
 
 
@@ -50,5 +50,5 @@ $ gulp serve --localhost
 
 2. Start server with localhost api (default API url http://127.0.0.1:8000/website)
 ```
-$ gulp build --localhost
+(env)$ gulp build --localhost
 ```
