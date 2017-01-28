@@ -14,12 +14,17 @@ var $ = require('gulp-load-plugins')({
 
 function generateSettings() {
   return gulp.src('./settings.json')
-    .pipe(gulpif(argv.production, gulpNgConfig('project.settings', {
-      environment: 'production'
-    })))
-    .pipe(gulpif(argv.development, gulpNgConfig('project.settings', {
-      environment: 'development'
-    })))
+        .pipe(gulpif(argv.production, gulpNgConfig('project.settings', {
+            environment: 'production'
+        })))
+        .pipe(gulpif(argv.development, gulpNgConfig('project.settings', {
+            environment: 'development'
+        })))
+        .pipe(gulpif(argv.localhost, gulpNgConfig('project.settings', {
+            environment: 'localhost'
+        })))
+
+  .pipe(gulp.dest('./src/app'))
 }
 
 gulp.task('settings', function () {

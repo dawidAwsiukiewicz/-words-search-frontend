@@ -10,6 +10,13 @@
     <span ng-repeat="url in vc.SearchService.bad_url_list">{{url}}<br/></span>
 </div>
 
+<div class="table__legend pull-left">
+    <h4>Legenda:</h4>
+    <span class="label label-success">Słowo odnalezione</span>
+    <span class="label label-danger">Słowo nieodnalezione</span>
+</div>
+
+<button ng-click="vc.loadItemList()" class="btn btn-success btn-md pull-right">Odśwież wyniki</button>
 
 <table class="table table-striped">
     <thead>
@@ -22,26 +29,21 @@
     </thead>
     <tbody ng-repeat="item in vc.itemList.results">
         <tr>
-            <td ng-bind="$index + 1"></td>
+            <td ng-bind="item.id"></td>
             <td ng-bind="item.url"></td>
             <td ng-bind="item.status_display"></td>
             <td class="text-center">
-                <a class='btn btn-info btn-xs' ng-click="item.show_detail=!item.show_detail"><span class="glyphicon glyphicon-th-large"></span> Szczegóły</a>
+                <button ng-disabled="item.status!==3" class='btn btn-info btn-xs' ng-click="item.show_detail=!item.show_detail"><span class="glyphicon glyphicon-th-large"></span> Szczegóły</button>
             </td>
         </tr>
         <tr class="table__detail" ng-hide="!item.show_detail">
             <td colspan="4">
-                <ul>
-                    <li ng-repeat="word in item.words">
-                        <span class="table__detail__label">{{word.word}}:</span>
-                        <span class="table__detail__value">{{word.count}}</span>
-                    </li>
-                </ul>
+                <span class="label" ng-class="{'label-success': word.count > 0, 'label-danger':word.count <=0}" ng-repeat="word in item.words">{{word.word}}</span>
             </td>
         </tr>
     </tbody>
 </table>
 
 <div>
-    <ul class="pagination-custom pull-left" uib-pagination items-per-page="vc.filter.per_page" ng-change="vc.loadItemList(vc.filter)" total-items="vc.totalItems" ng-model="vc.filter.page" max-size="5"></ul>
+    <ul class="pagination-custom pull-left" previous-text="Poprzednia" next-text="Następna" uib-pagination items-per-page="vc.filter.per_page" ng-change="vc.loadItemList(vc.filter)" total-items="vc.totalItems" ng-model="vc.filter.page" max-size="5"></ul>
 </div>

@@ -22,7 +22,7 @@
                 _this.AuthTokenStorage.setToken(response.data.token);
                 _this.localStorageService.set('User', response.data.user_data);
 
-                $state.go('root.search');
+                _this.$state.go('root.search');
 
             }).catch(function (response) {
                 _this.ErrorHandlerService.notifyUser(response);
