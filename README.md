@@ -28,7 +28,7 @@ $ . env/bin/activate
 (env)$ npm install -g gulp bower
 ```
 
-3. Install js requirements
+4. Install js requirements
 ```
 (env)$ npm install
 (env)$ bower install
